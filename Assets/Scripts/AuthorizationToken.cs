@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AuthorizationToken : MonoBehaviour
+[System.Serializable]
+public class AuthorizationToken
 {
     public string access_token;
     public string token_type;

@@ -10,9 +10,11 @@ public class Login : MonoBehaviour
     public InputField passwordInputField;
     public Button loginButton;
 
+    private string httpServerAddress = "https://localhost:44325/";
+
     private void GetToken()
     {
-        UnityWebRequest httpClient = new UnityWebRequest("Token", "POST");
+        UnityWebRequest httpClient = new UnityWebRequest(httpServerAddress + "Token", "POST");
 
         // application/x-www-form-urlencoded
         WWWForm dataToSend = new WWWForm();
@@ -43,7 +45,7 @@ public class Login : MonoBehaviour
     private void TryLogin()
     {
 
-        UnityWebRequest httpClient = new UnityWebRequest("api/Account/UserId", "GET");
+        UnityWebRequest httpClient = new UnityWebRequest(httpServerAddress + "api/Account/UserId", "GET");
 
         httpClient.SetRequestHeader("Authorization", "bearer ");
         httpClient.SetRequestHeader("Accept", "application/json");
